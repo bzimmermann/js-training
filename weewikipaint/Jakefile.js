@@ -1,42 +1,45 @@
 /*global desc, task, jake, fail, complete */
+(function () {
+    "use strict";
 
-"use strict";
+    task("default", ["lint"]);
 
-task("default", ["lint"]);
+    desc("Lint everything");
 
-desc("Lint everything");
+    task("lint", [], function () {
+        var lint = require("./build/lint/lint_runner.js");
+        lint.validateFileList(filesToValidate(), nodeLintOptions(), {});
+    });
 
-function nodeLintOptions() {
-    var options = {
-        bitwise: true,
-        curly: false,
-        eqeqeq: true,
-        forin: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        noempty: true,
-        nonew: true,
-        regexp: true,
-        undef: true,
-        strict: true,
-        trailing: true,
-        node: true
-    };
-    return options;
-}
+    function filesToValidate() {
+        var flist = new jake.FileList()
+            .include("**/*.js")
+            .exclude("node_modules")
+            .exclude("_lint_runner_test.js")
+            .toArray();
+        return flist;   
+    }
 
-function jakeFileList() {
-    var flist = new jake.FileList()
-        .include("**/*.js")
-        .exclude("node_modules")
-        .exclude("_lint_runner_test.js")
-        .toArray();
-    return flist;
-}
-task("lint", [], function () {
-    var lint = require("./build/lint/lint_runner.js");
-    lint.validateFileList(jakeFileList(), nodeLintOptions(), {});
-});
+    function nodeLintOptions() {
+        var options = {
+            bitwise: true,
+            curly: false,
+            eqeqeq: true,
+            forin: true,
+            immed: true,
+            latedef: true,
+            newcap: true,
+            noarg: true,
+            noempty: true,
+            nonew: true,
+            regexp: true,
+            undef: true,
+            strict: true,
+            trailing: true,
+            node: true
+        };
+        return options;
+    }
+
+})();
 
