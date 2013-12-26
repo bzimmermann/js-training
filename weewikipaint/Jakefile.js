@@ -12,16 +12,15 @@
     });
 
     function filesToValidate() {
-        var flist = new jake.FileList()
+        return new jake.FileList()
             .include("**/*.js")
             .exclude("node_modules")
             .exclude("_lint_runner_test.js")
             .toArray();
-        return flist;   
     }
 
     function nodeLintOptions() {
-        var options = {
+        return {
             bitwise: true,
             curly: false,
             eqeqeq: true,
@@ -38,7 +37,6 @@
             trailing: true,
             node: true
         };
-        return options;
     }
 
 })();
