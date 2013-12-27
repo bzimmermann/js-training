@@ -3,7 +3,7 @@
     "use strict";
 
     desc("Build and Test");
-    task("default", ["lint"]);
+    task("default", ["lint", "test"]);
 
     desc("Lint everything");
 
@@ -11,6 +11,12 @@
         var lint = require("./build/lint/lint_runner.js");
         var passed = lint.validateFileList(filesToValidate(), nodeLintOptions(), {});
         if (!passed) fail("Lint failed");
+    });
+
+    desc("Test everything");
+
+    task("test", [], function() {
+        console.log("test go here");
     });
 
     desc("Integration");
