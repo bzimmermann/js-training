@@ -7,6 +7,9 @@ To build on Ubuntu:
 - Install JHints
 - Install jake
 - Install npm
+- Git pull
+- Run ./jake.sh
+
 
 To build on Mac OS X:
 - Assumes presence of Node.js
