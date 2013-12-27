@@ -9,7 +9,8 @@
 
     task("lint", [], function () {
         var lint = require("./build/lint/lint_runner.js");
-        lint.validateFileList(filesToValidate(), nodeLintOptions(), {});
+        var passed = lint.validateFileList(filesToValidate(), nodeLintOptions(), {});
+        if (!passed) fail("Lint failed");
     });
 
     desc("Integration");

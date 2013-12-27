@@ -22,3 +22,5 @@ Engineering Tasks:
 - server-side testing
 - client-side testing
 
+To do on current Task:
+- make build fail when lint fails
