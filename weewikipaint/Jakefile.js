@@ -2,6 +2,7 @@
 (function () {
     "use strict";
 
+    desc("Build and Test");
     task("default", ["lint"]);
 
     desc("Lint everything");
@@ -9,6 +10,19 @@
     task("lint", [], function () {
         var lint = require("./build/lint/lint_runner.js");
         lint.validateFileList(filesToValidate(), nodeLintOptions(), {});
+    });
+
+    desc("Integration");
+
+    task("integration", ["default"], function () {
+        console.log("1. Make sure 'git status' is clean");
+        console.log("2. Build on the integration box");
+        console.log("   a. Walk over the integration box");
+        console.log("   b. 'git pull'");
+        console.log("   c. './jake.sh");
+        console.log("3. 'git checkout integration'");
+        console.log("4. 'git merge master --no-ff --log");
+        console.log("Integration logic goes here");
     });
 
     function filesToValidate() {

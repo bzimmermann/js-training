@@ -1,6 +1,16 @@
 WeeWikiPaint
 
 
-Tob build:
+To build on Ubuntu:
+- Install Git
+- Install Node.js
+- Install JHints
+- Install jake
+- Install npm
+- Git pull
+- Run ./jake.sh
+
+
+To build on Mac OS X:
 - Assumes presence of Node.js
 - Run ./jake.sh
