@@ -1,5 +1,8 @@
 WeeWikiPaint
 
+There exists a global branch named 'integration', which always must cover
+clean building code.
+
 
 To build on Ubuntu:
 - Install Git
